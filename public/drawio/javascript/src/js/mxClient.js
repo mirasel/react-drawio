@@ -350,7 +350,10 @@ var mxClient =
 	 */
 	include: function(src)
 	{
-		document.write('<script src="'+src+'"></script>');
+		// document.write('<script src="' + src + '"></script>');
+		const dynamicScript = document.createElement('script');
+		dynamicScript.src = src;
+		document.head.appendChild(dynamicScript);
 	}
 };
 
@@ -459,7 +462,7 @@ if (typeof(mxBasePath) != 'undefined' && mxBasePath.length > 0)
 }
 else
 {
-	mxClient.basePath = '.';
+	mxClient.basePath = 'drawio/javascript/src';
 }
 
 /**
